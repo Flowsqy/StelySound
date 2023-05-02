@@ -1,0 +1,5 @@
+name: StelySound
+version: "${version}"
+authors: [Flowsqy]
+main: fr.flowsqy.stelysound.StelySoundPlugin
+api-version: "1.13"
