@@ -5,12 +5,13 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.jetbrains.annotations.NotNull;
 
 public class ChatListener implements Listener {
 
     private final SoundHandler soundHandler;
 
-    public ChatListener(SoundHandler soundHandler) {
+    public ChatListener(@NotNull SoundHandler soundHandler) {
         this.soundHandler = soundHandler;
     }
 
