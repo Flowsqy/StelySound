@@ -22,7 +22,7 @@ public class ExternalBCCLoader {
 
     private void enable(@NotNull Plugin plugin, @NotNull SoundHandler soundHandler) {
         final PluginManager pluginManager = Bukkit.getPluginManager();
-        final ExternalBCCChatListener messageListener = new ExternalBCCChatListener(soundHandler);
+        final ExternalBCCChatListener messageListener = new ExternalBCCChatListener(plugin, soundHandler);
         pluginManager.registerEvents(messageListener, plugin);
     }
 

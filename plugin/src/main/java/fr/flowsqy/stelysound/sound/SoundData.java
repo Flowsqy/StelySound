@@ -5,5 +5,4 @@ import org.jetbrains.annotations.NotNull;
 
 public record SoundData(@NotNull Sound sound, float volume, float pitch) {
 
-
 }
