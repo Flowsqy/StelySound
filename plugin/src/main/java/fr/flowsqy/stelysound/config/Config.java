@@ -25,7 +25,7 @@ public class Config {
     }
 
     public char @NotNull [] getSeparators() {
-        final List<String> charList = configuration.getStringList("separators").stream().map(String::trim).filter(s -> s.length() == 1).toList();
+        final List<String> charList = configuration.getStringList("separators").stream().filter(s -> s.length() == 1).toList();
         final char[] separators = new char[charList.size()];
         int i = 0;
         for (String c : charList) {
