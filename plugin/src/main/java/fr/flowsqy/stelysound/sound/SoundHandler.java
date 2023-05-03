@@ -25,10 +25,10 @@ public class SoundHandler {
         for (Player receiver : receivers) {
             final Set<SendableSound> sendableSounds = new HashSet<>();
             final int mention = mentionCollector.getMention(receiver.getName(), words);
-            if ((mention & 2) == 2) {
+            if (mentionCollector.matchCaseSensitive(mention)) {
                 sendableSounds.addAll(Arrays.asList(organizedSounds.namesCaseSensitiveSounds()));
             }
-            if ((mention & 1) == 1) {
+            if (mentionCollector.matchCaseInsensitive(mention)) {
                 sendableSounds.addAll(Arrays.asList(organizedSounds.namesCaseInsensitiveSounds()));
             }
             sendableSounds.addAll(wordedSounds);
