@@ -1,0 +1,34 @@
+# Any characters that is considered as a word 'separator' or a word 'delimiter'
+# For example, if you specify the ' ' (escape) character, this message:
+# 'My awesome message'
+# Will be considered as 3 words: 'My', 'awesome' and 'message'
+separators: [' ', '.', '?', '!', ':', "'", '"', '(', ')', '{', '}', '[', ']', '%', '*', '<', '>']
+
+# Sounds section
+# You can have has many sounds as you want
+sounds:
+  # Here is an example
+  example1:
+    # Specific words that trigger the sound
+    words:
+      - "admin"
+      - "administrator"
+    # If words that should be recognized should match the case specified above
+    case-sensitive: false
+    # If this sound should be triggered by the name of one of the potential receiver
+    triggered-by-names: true
+    # The sound to produce. Should be one of theses https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+    sound: BLOCK_BELL_RESONATE
+    # The volume of the sound
+    volume: 1.0
+    # The pitch of the sound
+    pitch: 1.0
+    # The permission if this sound
+    # Leave this blank means "no permission", everyone can receive the sound if it's triggered
+    permission: "stelysound.admin"
+  example2:
+    sound: BLOCK_LANTERN_BREAK
+    words:
+      - "secret"
+    volume: 1.0
+    pitch: 1.0
