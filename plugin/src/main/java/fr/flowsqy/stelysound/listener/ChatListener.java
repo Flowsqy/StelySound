@@ -1,7 +1,6 @@
 package fr.flowsqy.stelysound.listener;
 
 import fr.flowsqy.stelysound.sound.SoundHandler;
-import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -22,7 +21,7 @@ public class ChatListener implements Listener {
     @SuppressWarnings("unused")
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     private void onChat(AsyncPlayerChatEvent event) {
-        soundHandler.asyncHandle(plugin, Bukkit.getOnlinePlayers(), event.getMessage());
+        soundHandler.asyncHandle(plugin, event.getRecipients(), event.getMessage());
     }
 
 }

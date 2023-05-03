@@ -2,7 +2,6 @@ package fr.flowsqy.stelysound.external.bungeechatconnect;
 
 import fr.flowsqy.bungeechatconnect.event.BungeePlayerChatEvent;
 import fr.flowsqy.stelysound.sound.SoundHandler;
-import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -22,6 +21,6 @@ public class ExternalBCCChatListener implements Listener {
     @SuppressWarnings("unused")
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     private void onChat(BungeePlayerChatEvent event) {
-        soundHandler.asyncHandle(plugin, Bukkit.getOnlinePlayers(), event.getMessage());
+        soundHandler.asyncHandle(plugin, event.getRecipients(), event.getMessage());
     }
 }
