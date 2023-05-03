@@ -29,7 +29,7 @@ public class MentionCollector {
     }
 
     private boolean get(int mention, int type) {
-        return (mention & (1 << type)) == 1;
+        return (mention & (1 << type)) != 0;
     }
 
     public boolean matchCaseSensitive(int mention) {
