@@ -9,7 +9,6 @@ public class MentionCollector {
     private final int CASE_SENSITIVE = 0;
     private final int CASE_INSENSITIVE = 1;
 
-    // First bit -> match without case, Second bit -> match with case
     public int getMention(@NotNull String researched, @NotNull List<String> words) {
         int mention = 0;
         for (String word : words) {
