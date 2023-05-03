@@ -58,6 +58,10 @@ public class Config {
             }
             final boolean caseSensitive = soundSection.getBoolean("case-sensitive");
             final boolean triggeredByNames = soundSection.getBoolean("triggered-by-names");
+            if (!triggeredByNames && words.isEmpty()) {
+                logger.warning("'" + key + "' sound can't be triggered");
+                continue;
+            }
             configuredSounds.add(new ConfiguredSound(caseSensitive, triggeredByNames, sendableSound, words));
         }
         return configuredSounds;
