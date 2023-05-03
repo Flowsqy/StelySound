@@ -10,10 +10,9 @@ public class MentionCollector {
     public int getMention(@NotNull String researched, @NotNull List<String> words) {
         int mention = 0;
         for (String word : words) {
-            if (!word.equalsIgnoreCase(researched)) {
-                continue;
+            if (mention == 0 && word.equalsIgnoreCase(researched)) {
+                mention |= 1;
             }
-            mention |= 1;
             if (!word.equals(researched)) {
                 continue;
             }
