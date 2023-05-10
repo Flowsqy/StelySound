@@ -10,12 +10,17 @@ repositories {
     maven {
         url = uri("https://jitpack.io")
     }
+    maven {
+        url = uri("https://repo.essentialsx.net/snapshots/")
+    }
 }
 
 dependencies {
     compileOnly "org.jetbrains:annotations:24.0.1"
     compileOnly "org.spigotmc:spigot-api:1.19.4-R0.1-SNAPSHOT"
     compileOnly "com.github.Flowsqy:BungeeChatConnect:3549d12f00"
+    compileOnly "net.essentialsx:EssentialsX:2.20.0-SNAPSHOT"
+    compileOnly "net.essentialsx:EssentialsXChat:2.20.0-SNAPSHOT"
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
