@@ -3,6 +3,7 @@ package fr.flowsqy.stelysound.sound;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.function.BiPredicate;
 
 public class MentionCollector {
 
@@ -22,6 +23,36 @@ public class MentionCollector {
             break;
         }
         return mention;
+    }
+
+    public int getMention(@NotNull String[] researched, @NotNull String[] words) {
+        int mention = 0;
+        if (isMentioned(researched, words, String::equals)) {
+            mention = set(CASE_SENSITIVE, mention);
+            mention = set(CASE_INSENSITIVE, mention);
+        } else if (isMentioned(researched, words, String::equalsIgnoreCase)) {
+            mention = set(CASE_INSENSITIVE, mention);
+        }
+        return mention;
+    }
+
+    private boolean isMentioned(@NotNull String[] researched, @NotNull String[] words, @NotNull BiPredicate<String, String> equalityPredicate) {
+        final int wordsLength = words.length;
+        final int researchLength = researched.length;
+        for (int wordIndex = 0; wordIndex < (wordsLength - researchLength + 1); wordIndex++) {
+            boolean flag = true;
+            for (int searchIndex = 0; searchIndex < researchLength; searchIndex++) {
+                if (equalityPredicate.test(researched[searchIndex], words[searchIndex + wordIndex])) {
+                    continue;
+                }
+                flag = false;
+                break;
+            }
+            if (flag) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private int set(int mention, int type) {
